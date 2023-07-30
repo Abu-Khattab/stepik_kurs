@@ -73,6 +73,6 @@
 # print(a1 + d * (n - 1))
 
 
-n = int(input())
-
-print(n, n * 2, n * 3, n * 4, n * 5, sep='---')
+# n = int(input())
+#
+# print(n, n * 2, n * 3, n * 4, n * 5, sep='---')
