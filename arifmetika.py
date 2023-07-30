@@ -42,3 +42,37 @@
 #
 # print("Объем = ", v)
 # print("Площадь подной поверхности  = ", s)
+
+# a, b = int(input()), int(input())
+#
+# f = 3*(a + b) ** 3 + 275 * b ** 2 - 127 * a - 41
+# print(f)
+
+
+# a = int(input())
+# b = a - 1
+# c = a + 1
+#
+# print("Cледующее за числом", a, "число:", c)
+# print("Для числа", a, " предыдущее число:", b)
+
+
+# a, b, c, d = int(input()), int(input()), int(input()), int(input())
+#
+# print((a + b + c + d) * 3)
+
+
+# a, b = int(input()), int(input())
+#
+# print(a, '+', b, '=', a + b)
+# print(a, '-', b, '=', a - b)
+# print(a, '*', b, '=', a * b)
+
+
+# a1, d, n = int(input()), int(input()), int(input())
+# print(a1 + d * (n - 1))
+
+
+n = int(input())
+
+print(n, n * 2, n * 3, n * 4, n * 5, sep='---')
