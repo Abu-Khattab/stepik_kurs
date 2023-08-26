@@ -313,5 +313,17 @@
 #     print("NO")
 
 
+# ''' программа, которая выводит его наименьший отличный от 1 делитель '''
+#
+# num = int(input())
+# flag = True
+#
+# for i in range(2, num + 1):
+#     if num % i == 0:
+#         flag = False
+#         print(i)
+#         break
+
+
 
 
