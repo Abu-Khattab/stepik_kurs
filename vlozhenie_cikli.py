@@ -48,3 +48,26 @@
 #     print()
 
 
+# ''' 12 месяцев '''
+
+# for n in range(1, 13):
+#     for k in range(1, 13):
+#         for m in range(1, 12):
+#             if 28*n + 30*k + 31*m == 365:
+#                 print("n =", n, ", k =", k, ", m =", m)
+
+
+
+# ''' Старинная задача '''
+
+# total_money = 100
+# total_heads = 100
+#
+# for bulls in range(total_heads + 1):
+#     for cows in range(total_heads - bulls + 1):
+#         calves = total_heads - bulls - cows
+#         if (10 * bulls + 5 * cows + 0.5 * calves) == total_money:
+#             print("Быки =", bulls, ", Коровы =", cows, ", Телята =", calves)
+
+
+
