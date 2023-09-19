@@ -335,3 +335,553 @@
 
 
 
+''' Функции с возвратом булевых значений '''
+
+
+# ''' принимает в качестве аргументов три натуральных числа, и возвращает значение True
+#     если существует невырожденный треугольник '''
+#
+# # объявление функции
+# def is_valid_triangle(side1, side2, side3):
+#     if (side1 + side2) > side3 and (side1 + side3) > side2 and (side2 + side3) > side1:
+#         return True
+#     else:
+#         return False
+# # считываем данные
+# a, b, c = int(input()), int(input()), int(input())
+#
+# # вызываем функцию
+# print(is_valid_triangle(a, b, c))
+#
+#
+# ''' или '''
+#
+# def is_valid_triangle(*sides):
+#     return sum(sides) - max(sides) > max(sides)
+#
+# # считываем данные
+# a, b, c = int(input()), int(input()), int(input())
+#
+# # вызываем функцию
+# print(is_valid_triangle(a, b, c))
+
+
+
+# ''' принимает в качестве аргумента натуральное число и возвращает значение True если число является простым и
+#     False в противном случае '''
+#
+# # объявление функции
+# def is_prime(num):
+#     count = 0
+#     for i in range(2, num // 2 + 1):
+#         if num % i == 0:
+#             count += 1
+#     if num == 1:
+#         return False
+#     if count <= 0:
+#         return True
+#     else:
+#         return False
+#
+# # считываем данные
+# n = int(input())
+#
+# # вызываем функцию
+# print(is_prime(n))
+#
+#
+# ''' or '''
+#
+# # объявление функции
+# def is_prime(num):
+#     if num == 1:
+#         return False
+#     for i in range(2, num):
+#         if num % i == 0:
+#             return False
+#     return True
+#
+# # считываем данные
+# n = int(input())
+#
+# # вызываем функцию
+# print(is_prime(n))
+#
+#
+# ''' or '''
+# ''' Более скоростное решение '''
+#
+# # объявление функции
+# def is_prime(num):
+#     if num == 1:
+#         return False  # число 1 не является простым
+#
+#     for i in range(2, int(num ** 0.5) + 1):
+#         if num % i == 0:
+#             return False  # сразу возвращает False, когда находим делитель
+#
+#     return True
+#
+#
+# # считываем данные
+# n = int(input())
+#
+# # вызываем функцию
+# print(is_prime(n))
+
+
+
+# ''' принимает в качестве аргумента натуральное число num и возвращает
+#     первое простое число большее числа num   Next Prime 🌶️🌶️ '''
+#
+#
+# def is_prime(num):
+#     count = 0
+#     for i in range(2, num // 2 + 1):
+#         if num % i == 0:
+#             count += 1
+#     if num == 1:
+#         return False
+#     if count <= 0:
+#         return True
+#     else:
+#         return False
+#
+#
+#
+#
+# объявление функции
+# def get_next_prime(num):
+#     while is_prime(num + 1) == False:
+#         num += 1
+#         continue
+#     return num + 1
+#
+#
+# # считываем данные
+# n = int(input())
+#
+# # вызываем функцию
+# print(get_next_prime(n))
+
+
+# ''' or '''
+#
+# # объявление функции
+# def get_next_prime(num):
+#     num += 1
+#     for i in range(2, num):
+#         if num % i == 0:
+#             return get_next_prime(num)
+#     return num
+#
+# # считываем данные
+# n = int(input())
+#
+# # вызываем функцию
+# print(get_next_prime(n))
+
+
+# '''  Good password 🌶️   принимает в качестве аргумента строковое значение пароля password и возвращает значение True,
+#     если пароль является надежным и False - в противном случае. '''
+#
+#
+# def is_password_good(password):
+#     if (len(password) >= 8 and any(c.isupper() for c in password)
+#             and any(c.islower() for c in password) and any(c.isdigit() for c in password)):
+#         return True
+#     else:
+#         return False
+#
+# # считываем данные
+# txt = input()
+#
+# # вызываем функцию
+# print(is_password_good(txt))
+#
+#
+# ''' or '''
+#
+#
+# def is_password_good(password):
+#     if len(password) < 8:
+#         return False
+#     flag1 = False
+#     flag2 = False
+#     flag3 = False
+#     for c in password:
+#         if c.isupper():
+#             flag1 = True
+#         elif c.islower():
+#             flag2 = True
+#         elif c.isdigit():
+#             flag3 = True
+#     return flag1 and flag2 and flag3
+#
+# # считываем данные
+# txt = input()
+#
+# # вызываем функцию
+# print(is_password_good(txt))
+#
+#
+# ''' or '''
+#
+# def is_password_good(password):
+#     upp = [i for i in password if i.isupper()]
+#     low = [i for i in password if i.islower()]
+#     dig = [i for i in password if i.isdigit()]
+#     return all([len(password) >= 8, upp, low, dig])
+#
+#
+# txt = input()
+# print(is_password_good(txt))
+
+
+
+# ''' принимает в качестве аргументов два слова word1 и word2 и возвращает значение True,
+#  если слова имеют одинаковую длину и отличаются ровно в одном символе и False  в противном случае.'''
+#
+# # объявление функции
+# def is_one_away(word1, word2):
+#     res = 0
+#     if len(word1) != len(word2):
+#         return False
+#     for i in range(len(word1)):
+#         if word1[i] != word2[i]:
+#             res += 1
+#         if res == 0:
+#             return False
+#     if res >= 2:
+#         return False
+#     else:
+#         return True
+#
+# # считываем данные
+# txt1 = input()
+# txt2 = input()
+#
+# # вызываем функцию
+# print(is_one_away(txt1, txt2))
+
+
+# ''' or '''
+#
+# # объявление функции
+# def is_one_away(word1, word2):
+#     mismatches = 0
+#
+#     if len(word1) == len(word2):
+#         for i in range(len(word1)):
+#             if word1[i] != word2[i]:
+#                 mismatches += 1
+#
+#         return mismatches == 1
+#
+#     return False
+#
+#
+# # считываем данные
+# txt1 = input()
+# txt2 = input()
+#
+# # вызываем функцию
+# print(is_one_away(txt1, txt2))
+#
+#
+# ''' or '''
+#
+# # объявление функции
+# def is_one_away(word1, word2):
+#     a = 0
+#     for i in range(len(word1)):
+#         if word1[i] != word2[i]:
+#             a += 1
+#     return len(word1) == len(word2) and a == 1
+#
+# # считываем данные
+# txt1 = input()
+# txt2 = input()
+#
+# # вызываем функцию
+# print(is_one_away(txt1, txt2))
+
+
+# ''' Палиндром 🌶️ '''
+#
+# # объявление функции
+# def is_palindrome(text):
+#     # Удалить символы , . ! ? - и пробелы из текста
+#     cleaned_text = "".join(c.lower() for c in text if c.isalnum())
+#
+#     # Проверить, является ли очищенный текст палиндромом
+#     return cleaned_text == cleaned_text[::-1]
+#
+# # считываем данные
+# txt = input()
+#
+# # вызываем функцию
+# print(is_palindrome(txt))
+#
+#
+# ''' or '''
+#
+# def is_palindrome(text):
+#     symbols = [' ', ',', '.', '!', '?', '-']
+#     for c in symbols:
+#         text = text.replace(c, '')
+#     text = text.lower()
+#     return text == text[::-1]
+#
+# # считываем данные
+# txt = input()
+#
+# # вызываем функцию
+# print(is_palindrome(txt))
+#
+#
+# ''' or '''
+#
+# # объявление функции
+# def is_palindrome(text):
+#     text = [i.lower() for i in text if i not in (',.!?- ')]
+#     return text == text[::-1]
+#
+# # считываем данные
+# txt = input()
+#
+# # вызываем функцию
+# print(is_palindrome(txt))
+
+
+
+
+# ''' действительный пароль BEEGEEK  '''
+#
+#
+# def is_palindrome(number):
+#     # Функция для проверки, является ли число палиндромом
+#     return str(number) == str(number)[::-1]
+#
+# def is_prime(number):
+#     # Функция для проверки, является ли число простым
+#     if number <= 1:
+#         return False
+#     for i in range(2, int(number**0.5) + 1):
+#         if number % i == 0:
+#             return False
+#     return True
+#
+# def is_valid_password(password):
+#     # Разбиваем пароль на a, b и c
+#     parts = password.split(":")
+#     if len(parts) != 3:
+#         return False
+#
+#     a, b, c = map(int, parts)
+#
+#     # Проверяем условия
+#     if is_palindrome(a) and is_prime(b) and c % 2 == 0:
+#         return True
+#     else:
+#         return False
+#
+# # Пример использования функции
+# password = input()
+# result = is_valid_password(password)
+# if result:
+#     print("Пароль действителен")
+# else:
+#     print("Пароль не действителен")
+
+
+# ''' or '''
+#
+# def is_valid_password(password):
+#     password = password.split(':')
+#     a, b, c = password[0], int(password[1]), int(password[2])
+#     if len(password) != 3 or a != a[::-1] or c % 2 != 0:
+#         return False
+#     for i in range(2, b):
+#         if b % i == 0:
+#             return False
+#     return True
+#
+#
+# psw = input()
+# print(is_valid_password(psw))
+
+
+# ''' Правильная скобочная последовательность 🌶️ '''
+#
+# # объявление функции
+# def is_correct_bracket(text):
+#     stack = []  # Инициализируем стек для скобок
+#
+#     for char in text:
+#         if char == "(":
+#             stack.append(char)  # Если символ - открывающая скобка, добавляем её в стек
+#         elif char == ")":
+#             if not stack or stack.pop() != "(":  # Если символ - закрывающая скобка, проверяем стек
+#                 return False  # Если стек пуст или верхний элемент стека не парный, последовательность неправильная
+#
+#     return len(stack) == 0  # Проверяем, что стек пуст после обработки всех символов
+#
+#
+# # считываем данные
+# txt = input()
+#
+# # вызываем функцию
+# print(is_correct_bracket(txt))
+
+
+
+# ''' or '''
+#
+# # объявление функции
+# def is_correct_bracket(text):
+#     while "()" in text:
+#         text = text.replace("()", "")
+#
+#     return text == ""
+#
+#
+# # считываем данные
+# txt = input()
+#
+# # вызываем функцию
+# print(is_correct_bracket(txt))
+
+
+
+# ''' принимает в качестве аргумента строку в «верблюжьем регистре» и преобразует его в «змеиный регистр».'''
+#
+# def convert_to_python_case(text):
+#     s = text[0].lower()
+#     for i in text[1:]:
+#         if i.isupper():
+#             s = s + '_' + i.lower()
+#         else:
+#             s += i
+#     return s
+#
+# txt = input()
+# print(convert_to_python_case(txt))
+#
+#
+# ''' or '''
+#
+#
+# def convert_to_python_case(text):
+#     s = ''
+#     for el in text:
+#         if el.isupper():
+#             s += '_'
+#         s += el.lower()
+#     return s[1:]
+#
+#
+# print(convert_to_python_case(input()))
+#
+#
+# ''' or '''
+#
+#
+# def convert_to_python_case(text):
+#     return ''.join(['_' + i if i.isupper() else i for i in text]).lstrip('_').lower()
+#
+# # считываем данные
+# txt = input()
+#
+# # вызываем функцию
+# print(convert_to_python_case(txt))
+
+
+
+''' Функции с возвратом нескольких значений '''
+
+
+# ''' принимает в качестве аргументов координаты концов отрезка
+#  и возвращает координаты точки являющейся серединой данного отрезка.'''
+
+# # объявление функции
+# def get_middle_point(x1, y1, x2, y2):
+#     return (x1 + x2) / 2, (y1 + y2) / 2
+#
+# # считываем данные
+# x_1, y_1 = int(input()), int(input())
+# x_2, y_2 = int(input()), int(input())
+#
+# # вызываем функцию
+# x, y = get_middle_point(x_1, y_1, x_2, y_2)
+# print(x, y)
+
+
+# ''' принимает в качестве аргумента радиус окружности и возвращает два значения:
+#     длину окружности и площадь круга, ограниченного данной окружностью.'''
+#
+# from math import *
+#
+# # объявление функции
+# def get_circle(radius):
+#     return 2 * pi * radius, pi * radius**2
+#
+#
+# # считываем данные
+# r = float(input())
+#
+# # вызываем функцию
+# length, square = get_circle(r)
+# print(length, square)
+
+
+#
+# ''' Корни уравнения 🌶️🌶️ '''
+#
+#
+# # объявление функции
+# import math
+#
+#
+# def solve(a, b, c):
+#     # Вычисляем дискриминант
+#     discriminant = b ** 2 - 4 * a * c
+#
+#     # Вычисляем корни
+#     if discriminant > 0:
+#         root1 = (-b + math.sqrt(discriminant)) / (2 * a)
+#         root2 = (-b - math.sqrt(discriminant)) / (2 * a)
+#         return min(root1, root2), max(root1, root2)
+#
+#     elif discriminant == 0:
+#         root = -b / (2 * a)
+#         return root, root
+#
+#
+# # считываем данные
+# a, b, c = int(input()), int(input()), int(input())
+#
+# # вызываем функцию
+# x1, x2 = solve(a, b, c)
+# print(x1, x2)
+#
+#
+#
+# ''' or '''
+#
+#
+# def solve(a, b, c):
+#     D = b ** 2 - 4 * a * c
+#     x1 = (-b - D ** 0.5) / (2 * a)
+#     x2 = (-b + D ** 0.5) / (2 * a)
+#
+#     return min(x1, x2), max(x1, x2)
+#
+#
+# # считываем данные
+# a, b, c = int(input()), int(input()), int(input())
+#
+# # вызываем функцию
+# x1, x2 = solve(a, b, c)
+# print(x1, x2)
+
