@@ -62,3 +62,6 @@
 #
 # print('YES' if int(input()) % 100 == 0 else 'NO')
 
+
+
+# {int(_) for _ in input().split()}  # оказывается, можно еще сразу так))
