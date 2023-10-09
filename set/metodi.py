@@ -1,5 +1,4 @@
 
-
 # a, b, c = 'Beegeek loves Stepik'.split()
 # print(type(a))
 
@@ -405,6 +404,8 @@
 
 
 
+
+
 # ''' or '''
 #
 # n = int(input())
@@ -422,5 +423,169 @@
 #     my_set = my_set & set(input())
 #
 # print(*sorted(my_set, key=int))
+
+
+# ''' Одинаковые цифры '''
+
+# a, b = set(input()), set(input())
+# if a.isdisjoint(b):
+#     print('NO')
+# else:
+#     print('YES')
+
+
+# ''' or '''
+#
+# print(("YES", "NO")[set(input()).isdisjoint(input())])
+
+
+
+# ''' or '''
+#
+# print('NO' if set(input()).isdisjoint(set(input())) else 'YES')
+
+
+
+# ''' входят ли в запись первого числа все цифры, содержащиеся в записи второго '''
+
+# print('NO' if set(input()) <= (set(input())) else 'YES')
+
+
+
+
+# ''' выводит множество оценок, которые есть и у первого и у второго
+#  учеников, но которых нет у третьего ученика. '''
+#
+#
+# a, b, c = [{*map(int, input().split())} for _ in range(3)]
+# result = a & b
+# res = result - c
+# print(*sorted(res, reverse=True, key=int))
+#
+#
+#
+# ''' or '''
+#
+# set1 = set(int(i) for i in input().split())
+# set2 = set(int(i) for i in input().split())
+# set3 = set(int(i) for i in input().split())
+#
+# print(*sorted(set1 & set2 - set3, reverse=True))
+#
+#
+# ''' or '''
+#
+# a, b, c = [set(map(int, input().split())) for _ in range(3)]
+#
+# print(*sorted((a & b) - c, reverse=True))
+
+
+# ''' выводит такие оценки, которые встречаются не более, чем у двух учеников '''
+#
+# a, b, c = [set(map(int, input().split())) for _ in range(3)]
+# res = a.intersection(b, c)
+# result = (a | b | c) - res
+# print(*sorted(result))
+
+
+# ''' or '''
+#
+# a, b, c = [set(map(int, input().split())) for _ in range(3)]
+#
+# print(*sorted((a | b | c) - (a & b & c)))
+
+
+# ''' выводит множество оценок третьего ученика, которые не встречаются ни у первого, ни у второго ученика. '''
+#
+# a, b, c = [set(map(int, input().split())) for _ in range(3)]
+# print(*sorted(c - (a | b), reverse=True))
+
+
+# ''' выводит множество оценок, не встречающихся ни у одного из трех учеников. '''
+
+# a, b, c = [set(map(int, input().split())) for _ in range(3)]
+# n = set(range(11))
+# print(*sorted(n - (a | b | c)))
+
+
+# ''' генераторы '''
+#
+# items = [10, '30', 30, 10, '56', 34, '12', 90, 89, 34, 45, '67', 12, 10, 90, 23, '45', 56, '56', 1, 5, '6', 5]
+# my_set = {int(el) for el in items}
+# print(*sorted(my_set))
+#
+#
+# ''' or '''
+#
+# items = [10, '30', 30, 10, '56', 34, '12', 90, 89, 34, 45, '67', 12, 10, 90, 23, '45', 56, '56', 1, 5, '6', 5]
+# print(*sorted(set(map(int, items))))
+
+
+
+# ''' получить множество, содержащее первую букву каждого слова (в нижнем регистре) '''
+#
+# words = ['Plum', 'Grapefruit', 'apple', 'orange', 'pomegranate', 'Cranberry', 'lime',
+#          'Lemon', 'grapes', 'persimmon', 'tangerine', 'Watermelon', 'currant', 'Almond']
+# print(*sorted({i[0].lower() for i in words}))
+
+
+
+
+
+# import string
+#
+# sentence = '''My very photogenic mother died in a freak accident (picnic, lightning) when I was three, and,
+# save for a pocket of warmth in the darkest past, nothing of her subsists within the hollows and dells of memory,
+#  over which, if you can still stand my style (I am writing under observation), the sun of my infancy had set: surely,
+#   you all know those redolent remnants of day suspended, with the midges,
+#   about some hedge in bloom or suddenly entered and traversed by the rambler, at the bottom of a hill, in the summer dusk;
+#    a furry warmth, golden midges.'''
+#
+# # Очистим текст от знаков препинания
+# translator = str.maketrans('', '', string.punctuation)
+# cleaned_sentence = sentence.translate(translator)
+#
+# my_set = {word.lower() for word in cleaned_sentence.split()}
+# print(*sorted(my_set))
+
+
+
+# ''' or '''
+#
+# sentence = '''My very photogenic mother died in a freak accident (picnic, lightning) when I was three, and,
+# save for a pocket of warmth in the darkest past, nothing of her subsists within the hollows and dells of memory,
+#  over which, if you can still stand my style (I am writing under observation), the sun of my infancy had set: surely,
+#  you all know those redolent remnants of day suspended, with the midges,
+#   about some hedge in bloom or suddenly entered and traversed by the rambler, at the bottom of a hill, in the summer dusk;
+#    a furry warmth, golden midges.'''
+#
+# a = {i.strip(':,.!?();').lower() for i in sentence.split()}
+# print(*sorted(a))
+
+
+
+# ''' получить множество, содержащее уникальные слова  строки sentence длиною меньше 4 символов '''
+#
+# sentence = '''My very photogenic mother died in a freak accident (picnic, lightning) when I was three, and,
+# save for a pocket of warmth in the darkest past, nothing of her subsists within the hollows and dells of memory,
+#  over which, if you can still stand my style (I am writing under observation), the sun of my infancy had set: surely,
+#   you all know those redolent remnants of day suspended, with the midges,
+#   about some hedge in bloom or suddenly entered and traversed by the rambler, at the bottom of a hill, in the summer dusk;
+#    a furry warmth, golden midges.'''
+#
+# s = {i.strip(':,.!?();').lower() for i in sentence.split() if len(i.strip(':,.!?();')) < 4}
+# print(*sorted(s))
+
+
+
+
+# ''' Уникальные имена файлов c расширением .png '''
+#
+# files = ['python.png', 'qwerty.py', 'stepik.png', 'beegeek.org', 'windows.pnp', 'pen.txt', 'phone.py', 'book.txT',
+#          'board.pNg', 'keyBoard.jpg', 'Python.PNg', 'apple.jpeg', 'png.png', 'input.tXt', 'split.pop', 'solution.Py',
+#          'stepik.org', 'kotlin.ko', 'github.git']
+#
+# result = {file.lower() for file in files if file.lower().endswith('.png')}
+# print(*sorted(result))
 
 
