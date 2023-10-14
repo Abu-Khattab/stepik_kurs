@@ -65,3 +65,22 @@
 
 
 # {int(_) for _ in input().split()}  # оказывается, можно еще сразу так))
+
+
+
+# ''' ля каждого символа строки text будет подсчитано количество его вхождений. '''
+#
+# text = 'footballcyberpunkextraterritorialityconversationalistblockophthalmoscopicinterdependencemamauserfff'
+#
+# result = {}
+#
+# for i in text:
+#     result[i] = result.get(i, 0) + 1
+#
+# print(result)
+
+
+# {value:key for key, value in result.items()} # меняет местами ключ и значение в словаре. Может кому нибудь поможет.
+
+
+# lst = [word.strip('.,!?:;-') for word in input().lower().split()]  # Получить список очищенных  слов
