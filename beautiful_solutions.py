@@ -84,3 +84,28 @@
 
 
 # lst = [word.strip('.,!?:;-') for word in input().lower().split()]  # Получить список очищенных  слов
+
+
+
+# ''' Возврат уникальных чисел из массива '''
+#
+#
+# def removeDuplicates(nums):
+#     if not nums:
+#         return 0
+#
+#     k = 1  # Индекс, указывающий на текущую уникальную позицию в массиве
+#
+#     for i in range(1, len(nums)):
+#         if nums[i] != nums[i - 1]:
+#             nums[k] = nums[i]
+#             k += 1
+#
+#     return k
+#
+#
+# # Пример использования
+# nums = [1, 1, 2, 2, 2, 3, 3, 4, 5, 5]
+# k = removeDuplicates(nums)
+# print(nums[:k])  # Вывод уникальных элементов
+# print(k)  # Вывод количества уникальных элементов
