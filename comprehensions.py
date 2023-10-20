@@ -154,3 +154,4 @@
 # dicts = {1: 'a', 2: 'b', 3: 'a', 4: 'a'}
 # new_dicts = {v: k for k, v in dicts.items()}
 # print(new_dicts)
+
