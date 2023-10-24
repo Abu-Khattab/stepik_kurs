@@ -109,3 +109,28 @@
 # k = removeDuplicates(nums)
 # print(nums[:k])  # Вывод уникальных элементов
 # print(k)  # Вывод количества уникальных элементов
+
+
+
+
+# ''' Однако есть проблема: когда мы находимся на последнем студенте в списке, (i + 1) выходит за
+# пределы диапазона списка (поскольку индекс последнего студента равен len(list_of_students) - 1).
+#
+# Для решения этой проблемы мы используем оператор % (взятие по модулю).
+# (i + 1) % len(list_of_students) гарантирует, что мы остаемся в пределах диапазона списка.
+# Когда (i + 1) достигает значения len(list_of_students), возвращается к 0,
+# таким образом, обеспечивается циклическая обработка списка. '''
+#
+#
+# stud_quantity = int(input())
+# list_of_students = []
+# for i in range(stud_quantity):
+#     students = input()
+#     list_of_students.append(students)
+#
+# for i in range(len(list_of_students)):
+#     print(f'{list_of_students[i]} - {list_of_students[(i + 1) % len(list_of_students)]}')
+
+
+# такая конструкция вытянет по одному случайному символу из всех 3 указанных списков
+# result = [choice(i) for i in (chars1, chars2, chars3)]
