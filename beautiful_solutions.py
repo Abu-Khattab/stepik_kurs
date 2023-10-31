@@ -134,3 +134,21 @@
 
 # такая конструкция вытянет по одному случайному символу из всех 3 указанных списков
 # result = [choice(i) for i in (chars1, chars2, chars3)]
+
+
+# ''' isinstance() - это встроенная функция Python, которая позволяет проверить тип объекта.
+# Если arg является числом (int или float), условие вернет True, и arg будет включен в numeric_args.'''
+#
+# numeric_args = [arg for arg in args if isinstance(arg, (int, float))]
+# numeric_args = [i for i in args if type(i) in (int, float)]
+
+
+
+# def fun(x):
+#     x = [int(i) for i in str(x)]
+#     return sum(x)
+#
+#
+# numbers = input().split()  # Считываем список чисел
+# result = [fun(int(num)) for num in numbers]  # Применяем fun к каждому числу
+# print(result)  # Выводим результат
