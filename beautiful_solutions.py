@@ -152,3 +152,13 @@
 # numbers = input().split()  # Считываем список чисел
 # result = [fun(int(num)) for num in numbers]  # Применяем fun к каждому числу
 # print(result)  # Выводим результат
+
+
+
+def MAP(func, items):
+    return [func(item) for item in items]
+
+
+
+def FILTER(func, items):
+    return [item for item in items if func(item)]
