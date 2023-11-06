@@ -515,3 +515,177 @@
 # print(evaluate(map(int, input().split()), int(input())))
 
 
+# def ignore_command(command):
+#     ignore = ['alias', 'configuration', 'ip', 'sql', 'select', 'update', 'exec', 'del', 'truncate']
+#     return any(word in command for word in ignore)
+#
+#     ''' or '''
+#
+#     return any(map(lambda x: x in command, ignore))
+#
+#
+# print(ignore_command('get ip'))
+# print(ignore_command('select all'))
+# print(ignore_command('delete'))
+# print(ignore_command('trancate'))
+
+
+
+
+# def f(countries, capitals, population):
+#     for x, y, z in zip(countries, capitals, population):
+#         print(f'{y} is the capital of {x}, population equal {z} people.')
+#
+#
+#
+#
+# countries = ['Russia', 'USA', 'UK', 'Germany', 'France', 'India']
+# capitals = ['Moscow', 'Washington', 'London', 'Berlin', 'Paris', 'Delhi']
+# population = [145_934_462, 331_002_651, 80_345_321, 67_886_011, 65_273_511, 1_380_004_385]
+#
+# f(countries, capitals, population)
+
+
+# ''' Внутри шара '''
+#
+# x = list(map(lambda x: float(x)**2, input().split()))
+# y = list(map(lambda x: float(x)**2, input().split()))
+# z = list(map(lambda x: float(x)**2, input().split()))
+#
+# print(all(sum(i) <= 4 for i in zip(x, y, z)))
+#
+#
+# ''' or '''
+#
+# abscissas = input().split()
+# ordinates = input().split()
+# applicates = input().split()
+#
+# abscissas = list(map(float, abscissas))
+# ordinates = list(map(float, ordinates))
+# applicates = list(map(float, applicates))
+#
+# points = zip(abscissas, ordinates, applicates)
+#
+# is_inside = all(x ** 2 + y ** 2 + z ** 2 <= 4 for x, y, z in points)
+#
+# print(is_inside)
+
+
+
+# ''' Корректный IP-адрес '''
+#
+# def correct_ip(ip):
+#     result = all(map(lambda x: True if x.isdigit() and 0 <= int(x) <= 255 else False, ip))
+#     print(result)
+#
+#
+# ip = input().split('.')
+# correct_ip(ip)
+#
+# ''' or '''
+#
+# print(all(ip.isdigit() and 0<=int(ip)<=255 for ip in input().split('.')))
+#
+# ''' or '''
+#
+# print(all(list(map(lambda x: 0 <= int(x) <= 255 if x.isdigit() else False, input().split(".")))))
+
+
+
+# ''' Интересные числа '''
+#
+#
+# def delitel(a, b):
+#     num = list(range(a, b + 1))
+#     for i in num:
+#         if all(int(n) != 0 and i % int(n) == 0 for n in str(i)):
+#             print(i, end=' ')
+#
+#
+# a, b = int(input()), int(input())
+# delitel(a, b)
+#
+#
+# ''' or '''
+#
+# a, b = int(input()), int(input())
+#
+# for i in range(a, b + 1):
+#     # создаем кортеж со всеми цифрами числа
+#     digits = tuple(map(int, str(i)))
+#
+#     # проверяем, что число не содержит 0 и делится на все свои цифры
+#     if 0 not in digits and all(map(lambda cur_digit: i % cur_digit == 0, digits)):
+#         print(i, end=" ")
+#
+#
+#
+# ''' or '''
+#
+# for i in range(int(input()), int(input()) + 1):
+#     if all(map(lambda x: int(x) and not i % int(x), list(str(i)))):
+#         print(i, end=' ')
+
+
+# ''' Хороший пароль '''
+#
+# def correct_password(password):
+#     contains_lowercase = any(char.islower() for char in password)
+#     contains_uppercase = any(char.isupper() for char in password)
+#     contains_digit = any(char.isdigit() for char in password)
+#     contains_len = len(password) >= 7
+#
+#     if contains_lowercase and contains_uppercase and contains_digit and contains_len:
+#         print("YES")
+#     else:
+#         print("NO")
+#
+#
+# password = input()
+# correct_password(password)
+
+# ''' or '''
+#
+# s = input()
+# print('YES' if all((any(i.isupper() for i in s),
+#                     any(i.islower() for i in s),
+#                     any(i.isdigit() for i in s),
+#                     len(s) >= 7)) else 'NO')
+#
+# ''' or '''
+#
+# s = input()
+# print(('YES', 'NO')[any([len(s) < 7, s.islower(), s.isupper(), s.isalpha(), s.isdigit()])])
+#
+#
+# ''' Отличники '''
+#
+# n = int(input())
+# result = []
+#
+# for _ in range(n):
+#     k = int(input())
+#     grades = [input().split() for _ in range(k)]
+#     has_excellent_student = any(grade == '5' for _, grade in grades)
+#     result.append(has_excellent_student)
+#
+# if all(result):
+#     print("YES")
+# else:
+#     print("NO")
+#
+#
+# ''' or '''
+#
+# n = int(input())
+# l = [[int(input().split()[1]) for i in range(int(input()))] for i in range(n)]
+#
+# print('YES' if all(map(lambda x: 5 in x, l)) else 'NO')
+#
+# ''' or '''
+#
+# print(('NO', 'YES')[all([any(['5' in input() for _ in 'k'*int(input())]) for _ in 'n'*int(input())])])
+
+
+
