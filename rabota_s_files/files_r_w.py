@@ -363,3 +363,199 @@ def read_csv():
         return [row for row in reader]
 
 
+'''  Входная строка '''
+
+with open(r'/Users/user/stepik_kurs/rabota_s_files/output.txt', 'w') as file:
+    print('Позвоните нам: (916) 928-92xx\n', file=file)
+
+''' or '''
+
+with open(r'/Users/user/stepik_kurs/rabota_s_files/output.txt', 'w') as file:
+    print(input(), file=file)
+
+
+
+''' Случайные числа '''
+
+import random
+
+
+lists = [str(random.randint(111, 778)) for x in range(25)]
+
+with open(r'/Users/user/stepik_kurs/rabota_s_files/random.txt', 'w', encoding='utf-8') as file:
+    file.writelines('\n'.join(lists))
+
+
+''' or '''
+
+from random import randrange
+with open('random.txt','w') as out:
+    print(*[randrange(111,778) for _ in range(25)],sep='\n',file=out)
+
+
+''' or '''
+
+from random import randint
+with open('random.txt', 'w') as f:
+    f.writelines([str(randint(111,777))+'\n' for _ in range(25)])
+
+
+''' or '''
+
+from random import sample as r
+
+print(*r(range(111, 778), 25), file=open('random.txt', 'w'), sep='\n')
+
+
+''' or '''
+
+import random
+with open('random.txt', 'w') as output:
+    print(*random.sample(range(111, 777), 25), sep='\n', file=output)
+
+
+''' Нумерация строк '''
+
+
+with open(r'/Users/user/stepik_kurs/rabota_s_files/tests.txt', 'r') as f:
+    # Читаем все строки и убираем пробелы
+    lines = [line.strip() for line in f]
+
+with open(r'/Users/user/stepik_kurs/rabota_s_files/output.txt', 'w', encoding='utf-8') as s:
+    # Записываем пронумерованные строки в выходной файл
+    s.writelines(f"{index}) {line}\n" for index, line in enumerate(lines, start=1))
+
+
+''' or '''
+
+with open('input.txt') as inp, open('output.txt', 'w') as out:
+    for i, j in enumerate(inp, start=1):
+        print(f'{i}) {j}', end='', file=out)
+
+
+''' or '''
+
+with open('input.txt') as fin, open('output.txt', 'w') as fout:
+    [fout.write(f'{i}) {line}') for i, line in enumerate(fin, 1)]
+
+
+''' Подарок на новый год '''
+
+with open(r'/Users/user/stepik_kurs/rabota_s_files/class_scores.txt', 'r') as f:
+    # Читаем строки из файла
+    lines = f.readlines()
+
+with open(r'/Users/user/stepik_kurs/rabota_s_files/output.txt', 'w', encoding='utf-8') as s:
+    # Обрабатываем каждую строку
+    for line in lines:
+        # Разделяем фамилию и оценку
+        parts = line.split()
+        name, score = parts[0], int(parts[1])
+
+        # Увеличиваем оценку на 5 баллов
+        new_score = min(score + 5, 100)  # Ограничиваем оценку максимальным значением 100
+
+        # Записываем в новый файл
+        s.write(f"{name} {new_score}\n")
+
+    print("Файл new_scores.txt успешно создан.")
+
+
+
+''' or '''
+
+with open('class_scores.txt') as i, open('new_scores.txt', 'w') as o:
+    for _ in i.readlines():
+        n, s = _.split()
+        print(f'{n} {min(int(s) + 5, 100)}', file=o)
+
+
+''' or '''
+
+with open('class_scores.txt') as class_scores, open('new_scores.txt', 'w') as new_scores:
+    for line in class_scores:
+        name, score = line.split()
+        score = int(score) + 5
+        if score > 100:
+            score = 100
+        print(name, score, file=new_scores)
+
+
+
+''' Загадка от Жака Фреско 🌶️ '''
+
+with open(r'/rabota_s_files/words2.txt', 'r') as file:
+    x = file.read().split('GOATS')
+    colors = x[0].split('\n')[1:]
+    goats = x[1].split('\n')
+
+with open(r'/Users/user/stepik_kurs/rabota_s_files/output.txt', 'w', encoding='utf-8') as answers:
+    for line in colors:
+        if goats.count(line) > len(goats) * 0.07:
+            answers.write(line + '\n')
+
+
+''' or '''
+
+with open('words2.txt', 'r') as goats, open('answer.txt', 'w') as out:
+    s = goats.read().split('\n')
+    [print(i, file=out) for i in sorted(set(s)) if (s.count(i)-1) > 7]
+
+
+
+
+''' Конкатенация файлов 🌶️ '''
+
+input_files_number = int(input())
+# здесь мы будем хранить имена всех файлов, из которых нам нужно взять содержимое
+input_files = [input() for _ in range(input_files_number)]
+
+with open("output.txt", "w", encoding="utf-8") as output_f:
+    for input_file in input_files:  # проходим по всем файлам
+        with open(input_file, "r", encoding="utf-8") as input_f:
+            file_contents = input_f.read()  # считываем содержимое файла
+            output_f.write(file_contents)  # записываем содержимое файла
+
+
+''' or '''
+
+with open(r'/Users/user/stepik_kurs/rabota_s_files/words.txt', 'r') as words, open(r'/Users/user/stepik_kurs/rabota_s_files/words2.txt', 'r') as words2:
+    x2 = words2.read()
+    x = words.read()
+
+with open(r'/Users/user/stepik_kurs/rabota_s_files/output.txt', 'w', encoding='utf-8') as output:
+    output.write(x + x2)
+
+
+
+''' Лог файл 🌶️ '''
+
+
+def minutes(x):
+    res = [int(i) for i in x.split(':')]
+    return res[0] * 60 + res[1]
+
+
+
+with open(r'/Users/user/stepik_kurs/rabota_s_files/logfile.txt', 'r') as times, open(r'/Users/user/stepik_kurs/rabota_s_files/output.txt', 'w', encoding='utf-8') as output:
+    for line in times:
+        a, b, c = line.strip().split(', ')
+        if minutes(c) - minutes(b) >= 60:
+            output.write(a+'\n')
+
+
+minutes(c)
+
+
+''' or '''
+
+def get_diff_mins(time2, time1):
+    t2 = list(map(int, time2.split(':')))
+    t1 = list(map(int, time1.split(':')))
+    return (t2[0]*60 + t2[1]) - (t1[0]*60 + t1[1])
+
+with open('logfile.txt', encoding='utf-8') as inputf, open('output.txt', 'w') as outputf:
+    for fn in inputf:
+        name, time1, time2 = fn.strip().split(', ')
+        if get_diff_mins(time2, time1) >= 60:
+            print(name, file=outputf)

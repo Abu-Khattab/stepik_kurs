@@ -162,3 +162,19 @@ def MAP(func, items):
 
 def FILTER(func, items):
     return [item for item in items if func(item)]
+
+
+''' max - min '''
+
+list1 = [[1, 7, 8], [9, 7, 102], [6, 106, 105], [100, 99, 98, 103], [1, 2, 3]]
+maximum = max(map(max, list1))
+
+print(maximum)
+
+
+''' создать матрицу '''
+
+n = int(input())
+matrix = [input().split() for _ in range(n)]
+
+
