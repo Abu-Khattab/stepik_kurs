@@ -248,3 +248,70 @@ print(choose_plural(505, ('утка', 'утки', 'уток')))
 print(choose_plural(666, ('шкаф', 'шкафа', 'шкафов')))
 print(choose_plural(11, ('стул', 'стула', 'стульев')))
 print(choose_plural(3458438435812, ('доллар', 'доллара', 'долларов')))
+
+
+
+
+''' Функция get_biggest() 🌶️🌶️ '''
+
+
+def get_biggest(numbers):
+    if numbers:
+        s = ''
+        max_len_num = len(str(max(numbers)))
+        numbers = sorted([str(i) for i in numbers], reverse=True, key=lambda x: x * max_len_num)
+        return int(s.join(numbers))
+    return -1
+
+
+
+''' or '''
+
+class new_str(str):
+    def __lt__(self, other):
+        return int(f'{self}{other}') < int(f'{other}{self}')
+
+
+def get_biggest(numbers):
+    if not numbers:
+        return -1
+    numbers = [new_str(n) for n in numbers]
+    return int(''.join(sorted(numbers)[::-1]))
+
+
+
+
+''' Тимур, Артур и новый курс '''
+
+
+d1, d2, d3 = [int(input()) for _ in range(3)]
+print(min(d1 + d3 + d2, d1 + d1 + d2 + d2, d2 + d3 + d3 + d2, d1 + d3 + d3 + d1))
+
+
+''' or '''
+
+lst = sorted([int(input()) for i in range(3)])
+if sum(lst[:2]) * 2 < sum(lst):
+    print(sum(lst[:2]) * 2)
+else:
+    print(sum(lst))
+
+
+''' or '''
+
+
+lst = sorted(int(input()) for _ in range(3))
+
+print(min(sum(lst), sum(lst[:2]) * 2))
+
+
+
+''' Схожие буквы '''
+
+
+langs = ['ru', 'mix', 'mix', 'en']
+eng = 'AaBCcEeHKMOoPpTXxy'
+index = sum([input() in eng for i in range(3)])
+print(langs[index])
+
+

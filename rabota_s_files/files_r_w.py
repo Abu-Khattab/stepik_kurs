@@ -12,7 +12,7 @@ x.close()
 
 ''' Случайная строка '''
 
-x = open(r'/Users/user/stepik_kurs/rabota_s_files/tests.txt', 'r', encoding='utf-8')
+x = open(r'/tests.txt', 'r', encoding='utf-8')
 content = x.readlines()
 print(choice(content))
 x.close()
@@ -37,7 +37,7 @@ print(sum(l))
 
 ''' Сумма двух-2 '''
 
-x = open(r'/Users/user/stepik_kurs/rabota_s_files/tests.txt', 'r', encoding='utf-8')
+x = open(r'/tests.txt', 'r', encoding='utf-8')
 x1 = [int(i) for i in x.read().split()]
 print((sum(x1)))
 
@@ -83,7 +83,7 @@ file.close()
 
 ''' Переворот строки '''
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/tests.txt', encoding='utf-8') as file:
+with open(r'/tests.txt', encoding='utf-8') as file:
     line1 = file.readline().strip()
     rever = ''.join(reversed(line1))
     print(rever)
@@ -107,7 +107,7 @@ with open('text.txt', encoding='utf-8') as file:
 
 ''' Обратный порядок '''
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/tests.txt', encoding='utf-8') as file:
+with open(r'/tests.txt', encoding='utf-8') as file:
     lines = file.readlines()
     for line in reversed(lines):
         print(line.strip())
@@ -126,7 +126,7 @@ with open('data.txt', encoding='UTF-8') as file:
 
 ''' Длинные строки '''
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/tests.txt', encoding='utf-8') as file:
+with open(r'/tests.txt', encoding='utf-8') as file:
     s = len(max(file.readlines(), key=len))
     li = []
     file.seek(0)
@@ -156,7 +156,7 @@ print(*filter(lambda x: len(x) == n, text), sep='')
 
 ''' Сумма чисел в строках '''
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/tests.txt', encoding='utf-8') as file:
+with open(r'/tests.txt', encoding='utf-8') as file:
     lines = file.readlines()
 
 for line in lines:
@@ -185,7 +185,7 @@ import re
 
 sum_total = 0
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/tests.txt', encoding='utf-8') as file:
+with open(r'/tests.txt', encoding='utf-8') as file:
     lines = file.readlines()
 
 for line in lines:
@@ -223,7 +223,7 @@ def counter_text():
 
     sum_total = 0
 
-    with open(r'/Users/user/stepik_kurs/rabota_s_files/tests.txt', encoding='utf-8') as file:
+    with open(r'/tests.txt', encoding='utf-8') as file:
         lines = file.readlines()
 
         # Количество строк
@@ -270,7 +270,7 @@ with open('file.txt') as f:
 
 ''' Random name and surname '''
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/first_names.txt', encoding='utf-8') as file1, open(r'/Users/user/stepik_kurs/rabota_s_files/last_names.txt', encoding='utf-8') as file2:
+with open(r'/first_names.txt', encoding='utf-8') as file1, open(r'/last_names.txt', encoding='utf-8') as file2:
     all_members = [(name.strip(), lastname.strip()) for name, lastname in zip(file1, file2)]
     for name, lastname in all_members[:3]:
         print(name, lastname)
@@ -300,7 +300,7 @@ with open('first_names.txt') as name, open('last_names.txt') as surname:
 
 ''' Необычные страны '''
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/population.txt', encoding='utf-8') as file:
+with open(r'/population.txt', encoding='utf-8') as file:
     all_members = [line.strip().split('\t') for line in file]
     res = [line for line in all_members if line[0][0] == 'G' and int(line[-1]) > 500000]
     for line in res:
@@ -309,7 +309,7 @@ with open(r'/Users/user/stepik_kurs/rabota_s_files/population.txt', encoding='ut
 
 ''' or '''
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/population.txt', encoding='utf-8') as file:
+with open(r'/population.txt', encoding='utf-8') as file:
     all_members = [line.strip().split('\t') for line in file]
     res = [line for line in all_members if line[0][0] == 'G' and int(line[-1]) > 500000]
     for line in res:
@@ -341,7 +341,7 @@ import csv
 def read_csv():
     data = []
 
-    with open(r'/Users/user/stepik_kurs/rabota_s_files/data.csv', 'r', newline='') as file:
+    with open(r'/data.csv', 'r', newline='') as file:
         reader = csv.DictReader(file)
 
         for row in reader:
@@ -365,12 +365,12 @@ def read_csv():
 
 '''  Входная строка '''
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/output.txt', 'w') as file:
+with open(r'/output.txt', 'w') as file:
     print('Позвоните нам: (916) 928-92xx\n', file=file)
 
 ''' or '''
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/output.txt', 'w') as file:
+with open(r'/output.txt', 'w') as file:
     print(input(), file=file)
 
 
@@ -382,7 +382,7 @@ import random
 
 lists = [str(random.randint(111, 778)) for x in range(25)]
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/random.txt', 'w', encoding='utf-8') as file:
+with open(r'/random.txt', 'w', encoding='utf-8') as file:
     file.writelines('\n'.join(lists))
 
 
@@ -417,11 +417,11 @@ with open('random.txt', 'w') as output:
 ''' Нумерация строк '''
 
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/tests.txt', 'r') as f:
+with open(r'/tests.txt', 'r') as f:
     # Читаем все строки и убираем пробелы
     lines = [line.strip() for line in f]
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/output.txt', 'w', encoding='utf-8') as s:
+with open(r'/output.txt', 'w', encoding='utf-8') as s:
     # Записываем пронумерованные строки в выходной файл
     s.writelines(f"{index}) {line}\n" for index, line in enumerate(lines, start=1))
 
@@ -441,11 +441,11 @@ with open('input.txt') as fin, open('output.txt', 'w') as fout:
 
 ''' Подарок на новый год '''
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/class_scores.txt', 'r') as f:
+with open(r'/class_scores.txt', 'r') as f:
     # Читаем строки из файла
     lines = f.readlines()
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/output.txt', 'w', encoding='utf-8') as s:
+with open(r'/output.txt', 'w', encoding='utf-8') as s:
     # Обрабатываем каждую строку
     for line in lines:
         # Разделяем фамилию и оценку
@@ -484,12 +484,12 @@ with open('class_scores.txt') as class_scores, open('new_scores.txt', 'w') as ne
 
 ''' Загадка от Жака Фреско 🌶️ '''
 
-with open(r'/rabota_s_files/words2.txt', 'r') as file:
+with open(r'/words2.txt', 'r') as file:
     x = file.read().split('GOATS')
     colors = x[0].split('\n')[1:]
     goats = x[1].split('\n')
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/output.txt', 'w', encoding='utf-8') as answers:
+with open(r'/output.txt', 'w', encoding='utf-8') as answers:
     for line in colors:
         if goats.count(line) > len(goats) * 0.07:
             answers.write(line + '\n')
@@ -519,11 +519,11 @@ with open("output.txt", "w", encoding="utf-8") as output_f:
 
 ''' or '''
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/words.txt', 'r') as words, open(r'/Users/user/stepik_kurs/rabota_s_files/words2.txt', 'r') as words2:
+with open(r'/words.txt', 'r') as words, open(r'/words2.txt', 'r') as words2:
     x2 = words2.read()
     x = words.read()
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/output.txt', 'w', encoding='utf-8') as output:
+with open(r'/output.txt', 'w', encoding='utf-8') as output:
     output.write(x + x2)
 
 
@@ -537,7 +537,7 @@ def minutes(x):
 
 
 
-with open(r'/Users/user/stepik_kurs/rabota_s_files/logfile.txt', 'r') as times, open(r'/Users/user/stepik_kurs/rabota_s_files/output.txt', 'w', encoding='utf-8') as output:
+with open(r'/logfile.txt', 'r') as times, open(r'/output.txt', 'w', encoding='utf-8') as output:
     for line in times:
         a, b, c = line.strip().split(', ')
         if minutes(c) - minutes(b) >= 60:
@@ -559,3 +559,231 @@ with open('logfile.txt', encoding='utf-8') as inputf, open('output.txt', 'w') as
         name, time1, time2 = fn.strip().split(', ')
         if get_diff_mins(time2, time1) >= 60:
             print(name, file=outputf)
+
+
+
+
+
+
+
+
+
+''' exems '''
+
+''' Количество строк в файле '''
+
+with open(input(), 'r') as file:
+    line_count = sum(1 for line in file)
+    print(line_count)
+
+
+
+''' or '''
+
+with open(input(), 'r') as file:
+    print(len(file.readlines()))
+
+
+
+''' Суммарная стоимость '''
+
+with open('grades.txt', 'r') as file:
+    print(f'${sum(int(line[1:].strip()) for line in file)}')
+
+
+''' or '''
+
+with open('grades.txt', 'r') as file:
+    print(f'${sum(map(lambda x: int(x[1:]), file.readlines()))}')
+
+
+
+''' Goooood students '''
+
+
+# Открываем файл в режиме чтения
+with open(r'grades.txt', 'r', encoding='utf-8') as file:
+    # Используем функцию sum и генератор списка для подсчета студентов, сдавших все три теста
+    students_passed_all_tests = sum(1 for line in file if all(int(grade) >= 65 for grade in line.split()[1:]))
+
+    # Выводим результат
+    print("Количество студентов, сдавших все три теста:", students_passed_all_tests)
+
+
+''' or '''
+
+with open('grades.txt') as f:
+    print(len(list(filter(lambda x: all(int(x[i]) >= 65 for i in (1, 2, 3)), (map(str.split, f))))))
+
+
+
+
+
+''' Самое длинное слово в файле '''
+
+
+content = file.read().split()
+print(*[i for i in content if len(i) == len(max(content, key=len))], sep='\n')
+
+
+''' or '''
+
+with open('words.txt') as f:
+    lst = f.read().split()
+longest = len(max(lst, key=len))
+print(*filter(lambda x: len(x) == longest, lst), sep='\n')
+
+
+
+''' Tail of a File '''
+
+with open(input(), 'r', encoding='utf-8') as file:
+    # Читаем все строки файла
+    all_lines = file.readlines()
+
+    # Выводим последние 10 строк (или все строки, если их меньше 10)
+    for line in all_lines[-10:]:
+        print(line, end='')
+
+
+
+''' or '''
+
+with open(input()) as file:
+    print(*file.readlines()[-10:], sep='')
+
+
+
+
+
+
+''' Forbidden words 🌶️ '''
+
+
+import re
+
+with open(input()) as inp, open('forbidden_words.txt') as fw:
+    text, bad = inp.read(), fw.read().split()
+
+for i in bad:
+    text = re.sub(i, '*' * len(i), text, flags=re.IGNORECASE)
+print(text)
+
+
+
+
+''' or '''
+
+
+import os
+
+def load_forbidden_words():
+    forbidden_words = set()
+    with open(os.path.join(base_path, 'forbidden_words.txt'), 'r', encoding='utf-8') as fw_file:
+        for line in fw_file:
+            forbidden_words.update(line.strip().split())
+    return forbidden_words
+
+
+def censor_text(filename, forbidden_words):
+    with open(filename, 'r', encoding='utf-8') as target_file:
+        for line in target_file:
+            words = line.split()
+            censored_line = ' '.join(['*' * len(word) if word.lower() in forbidden_words else word for word in words])
+            print(censored_line)
+
+
+if __name__ == "__main__":
+    base_path = 'путь к папке с файлами'
+    filenames = [os.path.join(base_path, file) for file in ['data.txt', 'stepik.txt', 'beegeek.txt']]
+    forbidden_words = load_forbidden_words()
+
+    for filename in filenames:
+        print(f"Цензурированный текст файла {filename}:")
+        censor_text(filename, forbidden_words)
+        print("\n" + "-"*50 + "\n")
+
+
+
+
+
+''' Транслитерация 🌶️ '''
+
+
+letters = {
+    'а': 'a', 'к': 'k', 'х': 'h', 'б': 'b', 'л': 'l', 'ц': 'c', 'в': 'v', 'м': 'm', 'ч': 'ch',
+    'г': 'g', 'н': 'n', 'ш': 'sh', 'д': 'd', 'о': 'o', 'щ': 'shh', 'е': 'e', 'п': 'p', 'ъ': '*',
+    'ё': 'jo', 'р': 'r', 'ы': 'y', 'ж': 'zh', 'с': 's', 'ь': "'", 'з': 'z', 'т': 't', 'э': 'je',
+    'и': 'i', 'у': 'u', 'ю': 'ju', 'й': 'j', 'ф': 'f', 'я': 'ya'
+    }
+
+with open('cyrillic.txt') as file1, open('transliteration.txt', 'w') as file2:
+    for i in file1.read():
+        if i in letters:
+            file2.write(letters[i])
+        elif i.lower() in letters:
+            file2.write(letters[i.lower()].capitalize())
+        else:
+            file2.write(i)
+
+
+
+
+''' or '''
+
+
+# Берем словарь Дарьи Борзовой
+d = {
+    'а': 'a', 'к': 'k', 'х': 'h', 'б': 'b', 'л': 'l', 'ц': 'c', 'в': 'v', 'м': 'm', 'ч': 'ch',
+    'г': 'g', 'н': 'n', 'ш': 'sh', 'д': 'd', 'о': 'o', 'щ': 'shh', 'е': 'e', 'п': 'p', 'ъ': '*',
+    'ё': 'jo', 'р': 'r', 'ы': 'y', 'ж': 'zh', 'с': 's', 'ь': "'", 'з': 'z', 'т': 't', 'э': 'je',
+    'и': 'i', 'у': 'u', 'ю': 'ju', 'й': 'j', 'ф': 'f', 'я': 'ya'
+    }
+
+# Добавляем заглавные буквы
+d.update({k.upper(): (v[0].upper() + v[1:]) for k, v in d.items()})
+
+# Вуаля!
+with open('cyrillic.txt', 'r', encoding='utf-8') as inp, open('transliteration.txt', 'w', encoding='utf-8') as out:
+    text= inp.read()
+    print(''.join(map(lambda ch: d.get(ch, ch), text)), file=out)
+
+
+
+
+''' Пропущенные комменты 🌶️ '''
+
+
+with open(input()) as file:
+    res = []
+    last_line = ' '
+    for line in file:
+        if line.startswith('def ') and not last_line.startswith('#'):
+            res.append(line[4:line.find('(')])
+        last_line = line
+
+if len(res):
+    print(*res, sep='\n')
+else:
+    print('Best Programming Team')
+
+
+
+''' or '''
+
+
+# читаем по одной строке, чтобы не перегрузить память, храним значение предидущей строки...
+
+
+with open(input()) as f:
+    prev, without_comments = ' ', []
+    for line in f:
+        if line.startswith('def') and not prev.startswith('#'):
+            without_comments.append(line[line.find(' ') + 1: line.find('(')])
+        prev = line
+    print('\n'.join(without_comments) if without_comments else 'Best Programming Team')
+
+
+
+
+''' the end course '''
